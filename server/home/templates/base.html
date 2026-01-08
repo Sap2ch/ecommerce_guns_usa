@@ -29,7 +29,7 @@
             height="60" class="logo"></a></p>
         <nav>
             <ul>
-                <li><a href="{% url 'home' %}">Home</a></li>
+                <!-- <li><a href="{% url 'home' %}">Home</a></li> -->
                 <li><a href="{% url 'about' %}">About Us</a></li>
                 <!-- <li><a href="#">Categories &bigtriangledown;</a> -->
                 <li><a href="">Categories</a>
@@ -45,7 +45,7 @@
                 {% if request.user.is_authenticated %}
                     <li><a href="{% url 'profile' slug=user.username %}"><img src="{% static 'media/home.png' %}" width="20" height="20" class="home" alt=""></a>
                         <ul class="profile-list">
-                            <li><a href="{% url 'products' %}">All products</a></li>
+                            <li><a href="{% url 'home' %}">All products</a></li>
                             <li><a href="{% url 'my-products' %}">My products</a></li>
                             <li><a href="{% url 'create-products' %}">Create products </a></li>
                             <li><a href="{% url 'ffl' %}">FFL</a></li>
@@ -62,6 +62,6 @@
         </nav>
     </header>
     {% block content %}{% endblock %}
-
+    
 </body>
 </html>

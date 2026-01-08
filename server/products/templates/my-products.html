@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
     <h1 style="text-align: center; margin-top: 100px">My products</h1>
@@ -21,4 +22,7 @@
         <h1>You don't have products!</h1>
     {% endif %}
     </div>
+    <img src="{% static 'media/advertising-guns.webp' %}" 
+        alt="Реклама Recovery Roll"
+        class="bottom-banner" />
 {% endblock %}

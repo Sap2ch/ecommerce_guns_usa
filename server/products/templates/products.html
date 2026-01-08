@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
     <h1 style="text-align: center; margin-top: 100px">Hello, world!</h1>
@@ -16,5 +17,9 @@
             <p>Seller: <a href="{% url 'profile' slug=product.user.username %}">{{ product.user.username }}</a><b></b></p>
             <p>URL: <a href="{% url 'show-products' slug=product.slug %}">{{ product.slug }}</a><b></b></p>
         {% endfor %}
+        <img src="{% static 'media/advertising-guns.webp' %}" 
+        alt="Реклама Recovery Roll"
+        class="bottom-banner" />
     </div>
+
 {% endblock %}

@@ -3,13 +3,14 @@ from django.http import HttpResponse
 from django.views.generic import ListView
 from category.models import Category
 from django.views import View
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 class IndexView(View):
     def get(self, request):
         return render(request, 'index.html', context={'request': request})
 
-class AmmoView(View):
+class AmmoView(LoginRequiredMixin, View):
     def get(self, request):
         return render(request, 'ammo.html')
     
