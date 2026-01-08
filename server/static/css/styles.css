@@ -226,3 +226,10 @@ nav ul li .profile-list {
     height: auto; 
     max-width: 70%; 
 }
+
+.bottom-banner {
+    width: 500px;
+    height: 100px;
+    display: block;
+    margin: 40px auto;
+}

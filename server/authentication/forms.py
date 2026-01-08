@@ -8,7 +8,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from users.models import Profile
 from django import forms
-
+import re
 
 class UserRegistrationForm(forms.ModelForm):
     username = forms.CharField(required=True, max_length=64)
@@ -45,6 +45,13 @@ class UserRegistrationForm(forms.ModelForm):
 
         if password != password_confirm:
             raise ValidationError("Пароли не совпадают")
+        
+        if len(password) < 8:
+            raise forms.ValidationError("Мінімум 8 символів.")
+        if not re.search(r'[A-Za-z]', password):
+            raise forms.ValidationError("Пароль має містити латинські літери.")
+        if not re.search(r'[!@#$%^&*]', password):
+            raise forms.ValidationError("Пароль має містити спецсимвол.")
         
         return password_confirm
     
